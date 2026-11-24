@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 186 186" width="186" height="186">
+<rect x="24" y="24" width="138" height="138" fill="#f3f5f7"/>
+<rect x="29" y="29" width="36" height="36" rx="5" fill="#4b5563"/>
+<rect x="75" y="29" width="36" height="36" rx="5" fill="#d7dde4"/>
+<rect x="121" y="29" width="36" height="36" rx="5" fill="#d7dde4"/>
+<rect x="29" y="75" width="36" height="36" rx="5" fill="#d7dde4"/>
+<rect x="75" y="75" width="36" height="36" rx="5" fill="#d7dde4"/>
+<rect x="121" y="75" width="36" height="36" rx="5" fill="#d7dde4"/>
+<rect x="29" y="121" width="36" height="36" rx="5" fill="#d7dde4"/>
+<rect x="75" y="121" width="36" height="36" rx="5" fill="#d7dde4"/>
+<rect x="121" y="121" width="36" height="36" rx="5" fill="#4b5563"/>
+<line x1="24" y1="24" x2="162" y2="24" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="70" x2="162" y2="70" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="116" x2="162" y2="116" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="162" x2="162" y2="162" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="24" x2="24" y2="162" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="70" y1="24" x2="70" y2="162" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="116" y1="24" x2="116" y2="162" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="162" y1="24" x2="162" y2="162" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<circle cx="24" cy="24" r="5" fill="#dc2626"/>
+<circle cx="70" cy="24" r="5" fill="#dc2626"/>
+<circle cx="24" cy="70" r="5" fill="#dc2626"/>
+<circle cx="70" cy="70" r="5" fill="#dc2626"/>
+<circle cx="116" cy="116" r="5" fill="#dc2626"/>
+<circle cx="162" cy="116" r="5" fill="#dc2626"/>
+<circle cx="116" cy="162" r="5" fill="#dc2626"/>
+<circle cx="162" cy="162" r="5" fill="#dc2626"/>
+
+</svg>

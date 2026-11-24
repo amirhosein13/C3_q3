@@ -1,0 +1,504 @@
+<!doctype html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><title>Express Eviction Editorial</title><link rel="stylesheet" href="style.css"></head><body><section class="cover">
+  <div class="kicker">ادیتوریال</div>
+  <h1>تخلیه‌ی سریع‌السیر</h1>
+  <div class="sub"><span class="m">Express Eviction</span></div>
+  <div class="tags">
+    <span>برش رأسی کمینه</span><span>شار بیشینه</span><span>دوگانی صفحه‌ای</span><span>شبکه</span>
+  </div>
+  <div class="tldr">
+    <b>خلاصه در یک خط:</b>
+    به‌جای پیدا کردن جاده، دیوارهایی را پیدا کنید که جلوی جاده را می‌گیرند. جواب، کمترین تعداد خانه‌ای است که باید از این دیوارها حذف شود تا همه‌شان بشکنند؛ یعنی یک برش رأسی کمینه که با شار بیشینه به دست می‌آید.
+  </div>
+</section>
+
+<h2>صورت سؤال به زبان ساده</h2>
+<p>
+یک جدول <span class="m">H × W</span> داریم که بعضی خانه‌هایش مسکونی‌اند. جاده روی <b>خطوط</b> جدول حرکت می‌کند، از گوشه‌ی بالا-چپ تا گوشه‌ی پایین-راست. هر خانه‌ی مسکونی که جاده حتی از یک <b>گوشه</b>ی آن رد شود باید تخلیه شود. کمترین تعداد تخلیه را می‌خواهیم.
+</p>
+<div class="figrow">
+  <figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 312 224" width="312" height="224">
+<rect x="24" y="24" width="264" height="176" fill="#f3f5f7"/>
+<rect x="29" y="29" width="34" height="34" rx="5" fill="#d7dde4"/>
+<rect x="73" y="29" width="34" height="34" rx="5" fill="#4b5563"/>
+<rect x="117" y="29" width="34" height="34" rx="5" fill="#4b5563"/>
+<rect x="161" y="29" width="34" height="34" rx="5" fill="#d7dde4"/>
+<rect x="205" y="29" width="34" height="34" rx="5" fill="#d7dde4"/>
+<rect x="249" y="29" width="34" height="34" rx="5" fill="#d7dde4"/>
+<rect x="29" y="73" width="34" height="34" rx="5" fill="#d7dde4"/>
+<rect x="73" y="73" width="34" height="34" rx="5" fill="#4b5563"/>
+<rect x="117" y="73" width="34" height="34" rx="5" fill="#d7dde4"/>
+<rect x="161" y="73" width="34" height="34" rx="5" fill="#d7dde4"/>
+<rect x="205" y="73" width="34" height="34" rx="5" fill="#d7dde4"/>
+<rect x="249" y="73" width="34" height="34" rx="5" fill="#d7dde4"/>
+<rect x="29" y="117" width="34" height="34" rx="5" fill="#4b5563"/>
+<path d="M36 124 L56 144 M56 124 L36 144" stroke="#dc2626" stroke-width="4" stroke-linecap="round"/>
+<rect x="73" y="117" width="34" height="34" rx="5" fill="#4b5563"/>
+<rect x="117" y="117" width="34" height="34" rx="5" fill="#d7dde4"/>
+<rect x="161" y="117" width="34" height="34" rx="5" fill="#d7dde4"/>
+<rect x="205" y="117" width="34" height="34" rx="5" fill="#d7dde4"/>
+<rect x="249" y="117" width="34" height="34" rx="5" fill="#d7dde4"/>
+<rect x="29" y="161" width="34" height="34" rx="5" fill="#d7dde4"/>
+<rect x="73" y="161" width="34" height="34" rx="5" fill="#d7dde4"/>
+<rect x="117" y="161" width="34" height="34" rx="5" fill="#d7dde4"/>
+<rect x="161" y="161" width="34" height="34" rx="5" fill="#d7dde4"/>
+<rect x="205" y="161" width="34" height="34" rx="5" fill="#4b5563"/>
+<rect x="249" y="161" width="34" height="34" rx="5" fill="#d7dde4"/>
+<line x1="24" y1="24" x2="288" y2="24" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="68" x2="288" y2="68" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="112" x2="288" y2="112" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="156" x2="288" y2="156" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="200" x2="288" y2="200" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="24" x2="24" y2="200" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="68" y1="24" x2="68" y2="200" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="112" y1="24" x2="112" y2="200" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="156" y1="24" x2="156" y2="200" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="200" y1="24" x2="200" y2="200" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="244" y1="24" x2="244" y2="200" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="288" y1="24" x2="288" y2="200" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<path d="M24 24 L24 200 L156 200 L156 112 L288 112 L288 200" fill="none" stroke="#2563eb" stroke-width="6" stroke-linejoin="round" stroke-linecap="round" opacity=".9"/>
+<circle cx="24" cy="24" r="6" fill="#16a34a"/><circle cx="288" cy="200" r="6" fill="#16a34a"/>
+
+</svg><figcaption>مثال: با تخلیه‌ی یک خانه (ضربدر قرمز) جاده‌ی آبی ساخته می‌شود. جواب ۱ است.</figcaption></figure>
+</div>
+<p>
+حداکثر ابعاد <span class="m">50 × 50</span> است؛ پس مشکل سرعت نیست، مشکل پیدا کردن <b>مدل درست</b> است.
+</p>
+
+<div class="howto">
+  <b>این ادیتوریال را چطور بخوانید؟</b>
+  راهنمایی‌ها از ساده به سخت مرتب شده‌اند. هر بار فقط یکی را بخوانید و دوباره چند دقیقه فکر کنید. راه‌حل کامل در صفحه‌های بعدی است.
+</div>
+
+<h2>راهنمایی‌ها</h2>
+
+<div class="hint"><div class="hn">راهنمایی ۱</div>
+جاده از رأس‌های شبکه می‌گذرد، نه از خانه‌ها. رأس‌ها یک شبکه‌ی <span class="m">(H+1) × (W+1)</span> هستند. یک خانه‌ی مسکونی دقیقاً وقتی تخلیه می‌شود که جاده از یکی از <b>چهار رأس گوشه‌ی</b> آن عبور کند.
+</div>
+
+<div class="hint"><div class="hn">راهنمایی ۲</div>
+فرض کنید مجموعه‌ی خانه‌هایی را که تخلیه <b>نمی‌کنیم</b> ثابت کرده‌ایم. هر کدام از این خانه‌ها چهار رأس گوشه‌ی خودش را «ممنوع» می‌کند. حالا سؤال فقط این است: آیا در رأس‌های مجاز، مسیری از گوشه‌ی بالا-چپ به پایین-راست وجود دارد؟
+<div class="figrow"><figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 198 198" width="198" height="198">
+<rect x="24" y="24" width="150" height="150" fill="#f3f5f7"/>
+<rect x="29" y="29" width="40" height="40" rx="5" fill="#d7dde4"/>
+<rect x="79" y="29" width="40" height="40" rx="5" fill="#d7dde4"/>
+<rect x="129" y="29" width="40" height="40" rx="5" fill="#d7dde4"/>
+<rect x="29" y="79" width="40" height="40" rx="5" fill="#d7dde4"/>
+<rect x="79" y="79" width="40" height="40" rx="5" fill="#4b5563"/>
+<rect x="129" y="79" width="40" height="40" rx="5" fill="#d7dde4"/>
+<rect x="29" y="129" width="40" height="40" rx="5" fill="#d7dde4"/>
+<rect x="79" y="129" width="40" height="40" rx="5" fill="#d7dde4"/>
+<rect x="129" y="129" width="40" height="40" rx="5" fill="#d7dde4"/>
+<line x1="24" y1="24" x2="174" y2="24" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="74" x2="174" y2="74" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="124" x2="174" y2="124" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="174" x2="174" y2="174" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="24" x2="24" y2="174" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="74" y1="24" x2="74" y2="174" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="124" y1="24" x2="124" y2="174" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="174" y1="24" x2="174" y2="174" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<circle cx="74" cy="74" r="5" fill="#dc2626"/>
+<circle cx="124" cy="74" r="5" fill="#dc2626"/>
+<circle cx="74" cy="124" r="5" fill="#dc2626"/>
+<circle cx="124" cy="124" r="5" fill="#dc2626"/>
+
+</svg><figcaption>یک خانه‌ی باقی‌مانده، چهار رأس قرمز را مسدود می‌کند.</figcaption></figure></div>
+</div>
+
+<div class="hint"><div class="hn">راهنمایی ۳</div>
+به جای «وجود مسیر» به «وجود مانع» فکر کنید. مثل بازی هِکس: یا از چپ به راست راه هست، یا یک دیوار از بالا به پایین همه‌چیز را بسته است. اینجا مسیر از گوشه‌ی بالا-چپ به پایین-راست بسته است اگر و تنها اگر یک <b>دیوار</b> از خانه‌های باقی‌مانده، ضلع‌های <b>چپ یا پایین</b> را به ضلع‌های <b>بالا یا راست</b> وصل کند.
+</div>
+
+<div class="hint"><div class="hn">راهنمایی ۴</div>
+دو خانه‌ی باقی‌مانده کِی با هم «دیوار» می‌سازند؟ دقت کنید که لازم نیست به هم بچسبند! اگر بین دو خانه فقط <b>یک</b> ستون فاصله باشد، هر دو خط عمودی داخل آن فاصله مسدود است.
+<div class="figrow">
+  <figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 186 186" width="186" height="186">
+<rect x="24" y="24" width="138" height="138" fill="#f3f5f7"/>
+<rect x="29" y="29" width="36" height="36" rx="5" fill="#4b5563"/>
+<rect x="75" y="29" width="36" height="36" rx="5" fill="#d7dde4"/>
+<rect x="121" y="29" width="36" height="36" rx="5" fill="#4b5563"/>
+<rect x="29" y="75" width="36" height="36" rx="5" fill="#d7dde4"/>
+<rect x="75" y="75" width="36" height="36" rx="5" fill="#d7dde4"/>
+<rect x="121" y="75" width="36" height="36" rx="5" fill="#d7dde4"/>
+<rect x="29" y="121" width="36" height="36" rx="5" fill="#d7dde4"/>
+<rect x="75" y="121" width="36" height="36" rx="5" fill="#d7dde4"/>
+<rect x="121" y="121" width="36" height="36" rx="5" fill="#d7dde4"/>
+<line x1="24" y1="24" x2="162" y2="24" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="70" x2="162" y2="70" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="116" x2="162" y2="116" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="162" x2="162" y2="162" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="24" x2="24" y2="162" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="70" y1="24" x2="70" y2="162" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="116" y1="24" x2="116" y2="162" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="162" y1="24" x2="162" y2="162" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<circle cx="24" cy="24" r="5" fill="#dc2626"/>
+<circle cx="70" cy="24" r="5" fill="#dc2626"/>
+<circle cx="116" cy="24" r="5" fill="#dc2626"/>
+<circle cx="162" cy="24" r="5" fill="#dc2626"/>
+<circle cx="24" cy="70" r="5" fill="#dc2626"/>
+<circle cx="70" cy="70" r="5" fill="#dc2626"/>
+<circle cx="116" cy="70" r="5" fill="#dc2626"/>
+<circle cx="162" cy="70" r="5" fill="#dc2626"/>
+
+</svg><figcaption>فاصله‌ی ۲: هر دو خط وسط بسته‌اند.</figcaption></figure>
+  <figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 186 186" width="186" height="186">
+<rect x="24" y="24" width="138" height="138" fill="#f3f5f7"/>
+<rect x="29" y="29" width="36" height="36" rx="5" fill="#4b5563"/>
+<rect x="75" y="29" width="36" height="36" rx="5" fill="#d7dde4"/>
+<rect x="121" y="29" width="36" height="36" rx="5" fill="#d7dde4"/>
+<rect x="29" y="75" width="36" height="36" rx="5" fill="#d7dde4"/>
+<rect x="75" y="75" width="36" height="36" rx="5" fill="#d7dde4"/>
+<rect x="121" y="75" width="36" height="36" rx="5" fill="#d7dde4"/>
+<rect x="29" y="121" width="36" height="36" rx="5" fill="#d7dde4"/>
+<rect x="75" y="121" width="36" height="36" rx="5" fill="#d7dde4"/>
+<rect x="121" y="121" width="36" height="36" rx="5" fill="#4b5563"/>
+<line x1="24" y1="24" x2="162" y2="24" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="70" x2="162" y2="70" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="116" x2="162" y2="116" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="162" x2="162" y2="162" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="24" x2="24" y2="162" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="70" y1="24" x2="70" y2="162" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="116" y1="24" x2="116" y2="162" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="162" y1="24" x2="162" y2="162" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<circle cx="24" cy="24" r="5" fill="#dc2626"/>
+<circle cx="70" cy="24" r="5" fill="#dc2626"/>
+<circle cx="24" cy="70" r="5" fill="#dc2626"/>
+<circle cx="70" cy="70" r="5" fill="#dc2626"/>
+<circle cx="116" cy="116" r="5" fill="#dc2626"/>
+<circle cx="162" cy="116" r="5" fill="#dc2626"/>
+<circle cx="116" cy="162" r="5" fill="#dc2626"/>
+<circle cx="162" cy="162" r="5" fill="#dc2626"/>
+
+</svg><figcaption>قطری با فاصله‌ی ۲ هم بسته است.</figcaption></figure>
+  <figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 232 186" width="232" height="186">
+<rect x="24" y="24" width="184" height="138" fill="#f3f5f7"/>
+<rect x="29" y="29" width="36" height="36" rx="5" fill="#4b5563"/>
+<rect x="75" y="29" width="36" height="36" rx="5" fill="#d7dde4"/>
+<rect x="121" y="29" width="36" height="36" rx="5" fill="#d7dde4"/>
+<rect x="167" y="29" width="36" height="36" rx="5" fill="#4b5563"/>
+<rect x="29" y="75" width="36" height="36" rx="5" fill="#d7dde4"/>
+<rect x="75" y="75" width="36" height="36" rx="5" fill="#d7dde4"/>
+<rect x="121" y="75" width="36" height="36" rx="5" fill="#d7dde4"/>
+<rect x="167" y="75" width="36" height="36" rx="5" fill="#d7dde4"/>
+<rect x="29" y="121" width="36" height="36" rx="5" fill="#d7dde4"/>
+<rect x="75" y="121" width="36" height="36" rx="5" fill="#d7dde4"/>
+<rect x="121" y="121" width="36" height="36" rx="5" fill="#d7dde4"/>
+<rect x="167" y="121" width="36" height="36" rx="5" fill="#d7dde4"/>
+<line x1="24" y1="24" x2="208" y2="24" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="70" x2="208" y2="70" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="116" x2="208" y2="116" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="162" x2="208" y2="162" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="24" x2="24" y2="162" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="70" y1="24" x2="70" y2="162" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="116" y1="24" x2="116" y2="162" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="162" y1="24" x2="162" y2="162" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="208" y1="24" x2="208" y2="162" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<circle cx="24" cy="24" r="5" fill="#dc2626"/>
+<circle cx="70" cy="24" r="5" fill="#dc2626"/>
+<circle cx="162" cy="24" r="5" fill="#dc2626"/>
+<circle cx="208" cy="24" r="5" fill="#dc2626"/>
+<circle cx="24" cy="70" r="5" fill="#dc2626"/>
+<circle cx="70" cy="70" r="5" fill="#dc2626"/>
+<circle cx="162" cy="70" r="5" fill="#dc2626"/>
+<circle cx="208" cy="70" r="5" fill="#dc2626"/>
+<path d="M116 162 V24" stroke="#2563eb" stroke-width="6" stroke-linecap="round"/>
+</svg><figcaption>فاصله‌ی ۳: یک خط آزاد می‌ماند.</figcaption></figure>
+</div>
+پس دو خانه‌ی <span class="m">(r₁, c₁)</span> و <span class="m">(r₂, c₂)</span> به هم وصل‌اند اگر
+<span class="m">max(|r₁ − r₂|, |c₁ − c₂|) ≤ 2</span>.
+</div>
+
+<div class="hint"><div class="hn">راهنمایی ۵</div>
+یک خانه کِی به ضلع «چپ» وصل است؟ فقط وقتی در ستون اول باشد (<span class="m">c = 0</span>)، چون فقط در این حالت رأس‌های روی ضلع چپ را می‌بندد. به همین ترتیب:
+<ul>
+<li>به گروه <span class="src">چپ یا پایین</span> وصل است اگر <span class="m">c = 0</span> یا <span class="m">r = H − 1</span>.</li>
+<li>به گروه <span class="snk">بالا یا راست</span> وصل است اگر <span class="m">r = 0</span> یا <span class="m">c = W − 1</span>.</li>
+</ul>
+دقت کنید که این قاعده با قاعده‌ی بین دو خانه فرق دارد. این‌جا عدد ۰ است، نه ۱ یا ۲.
+</div>
+
+<div class="hint"><div class="hn">راهنمایی ۶</div>
+حالا یک گراف روی خانه‌های مسکونی داریم. یالِ هر دو خانه با فاصله‌ی حداکثر ۲ است. یک منبع (ضلع‌های چپ و پایین) و یک چاه (ضلع‌های بالا و راست) هم داریم. باید کمترین تعداد <b>رأس</b> را حذف کنیم تا هیچ مسیری از منبع به چاه نماند. این مسئله اسم آشنایی دارد…
+</div>
+
+<div class="hint"><div class="hn">راهنمایی ۷</div>
+برش رأسی کمینه! طبق قضیه‌ی منگر برابر با شار بیشینه است. برای این‌که ظرفیت روی <b>رأس</b> باشد نه یال، هر رأس را به دو رأس «ورود» و «خروج» تقسیم کنید و بینشان یالی با ظرفیت ۱ بگذارید.
+</div>
+
+<div class="pagebreak"></div>
+
+<h2>زیرمسئله‌ها</h2>
+
+<div class="sub-card"><div class="sh"><span>زیرمسئله‌ی ۱</span><span class="pts">۶ امتیاز</span><span class="cond"><span class="m">H = 1</span></span></div>
+جاده باید از ستون ۰ تا ستون <span class="m">W</span> برود، پس از <b>همه</b>ی خطوط عمودی <span class="m">x = 0, 1, …, W</span> می‌گذرد. خانه‌ی ستون <span class="m">c</span> گوشه‌هایی روی خط <span class="m">x = c</span> دارد و چون ارتفاع ۱ است، هر رأسِ آن خط گوشه‌ی این خانه است. پس همه‌ی خانه‌ها لمس می‌شوند و جواب <b>تعداد #</b>ها است.
+</div>
+
+<div class="sub-card"><div class="sh"><span>زیرمسئله‌ی ۲</span><span class="pts">۱۴ امتیاز</span><span class="cond">حداکثر ۱۲ خانه‌ی مسکونی</span></div>
+همه‌ی <span class="m">2¹²</span> زیرمجموعه از خانه‌های تخلیه‌شده را امتحان کنید. برای هر کدام با یک جست‌وجوی سطحی روی رأس‌های مجاز بررسی کنید که مسیر وجود دارد یا نه. هزینه حدود <span class="m">2ᵏ · HW</span> است. این راه‌حل مستقیماً از راهنمایی ۲ می‌آید و برای آزمودن راه‌حل اصلی هم بسیار مفید است.
+</div>
+
+<div class="sub-card"><div class="sh"><span>زیرمسئله‌ی ۳</span><span class="pts">۱۸ امتیاز</span><span class="cond">جواب حداکثر ۱</span></div>
+اول بدون تخلیه جست‌وجوی سطحی بزنید؛ اگر مسیر بود جواب ۰ است. وگرنه هر خانه‌ی مسکونی را یک بار حذف کنید و دوباره بررسی کنید. کافی است یکی جواب دهد. هزینه حدود <span class="m">(HW)²</span>، یعنی حدود ۶ میلیون عمل.
+</div>
+
+<div class="sub-card"><div class="sh"><span>زیرمسئله‌ی ۴</span><span class="pts">۱۷ امتیاز</span><span class="cond"><span class="m">H ≤ 2</span></span></div>
+با دو سطر، هر خانه‌ی سطر پایین به منبع وصل است و هر خانه‌ی سطر بالا به چاه. دو خانه‌ی <span class="m">(0,0)</span> و <span class="m">(1, W−1)</span> به هر دو وصل‌اند و حتماً باید تخلیه شوند. برای بقیه، یک دیوار یعنی یک خانه‌ی پایین و یک خانه‌ی بالا با اختلاف ستون حداکثر ۲. پس باید کوچک‌ترین <b>پوشش رأسی</b> یک گراف دوبخشی را پیدا کنیم که طبق قضیه‌ی کونیگ برابر <b>تطابق بیشینه</b> است. چون همسایه‌های هر خانه یک بازه‌ی پیوسته با طول ثابت‌اند، تطابق حریصانه از چپ به راست کافی است: هر خانه‌ی پایین را به چپ‌ترین خانه‌ی آزادِ بالا در بازه‌ی <span class="m">[c−2, c+2]</span> وصل کنید.
+<div class="figrow"><figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 368 128" width="368" height="128">
+<rect x="24" y="24" width="320" height="80" fill="#f3f5f7"/>
+<rect x="29" y="29" width="30" height="30" rx="5" fill="#d7dde4"/>
+<rect x="69" y="29" width="30" height="30" rx="5" fill="#4b5563"/>
+<rect x="109" y="29" width="30" height="30" rx="5" fill="#d7dde4"/>
+<rect x="149" y="29" width="30" height="30" rx="5" fill="#d7dde4"/>
+<rect x="189" y="29" width="30" height="30" rx="5" fill="#4b5563"/>
+<rect x="229" y="29" width="30" height="30" rx="5" fill="#d7dde4"/>
+<rect x="269" y="29" width="30" height="30" rx="5" fill="#4b5563"/>
+<rect x="309" y="29" width="30" height="30" rx="5" fill="#d7dde4"/>
+<rect x="29" y="69" width="30" height="30" rx="5" fill="#4b5563"/>
+<rect x="69" y="69" width="30" height="30" rx="5" fill="#d7dde4"/>
+<rect x="109" y="69" width="30" height="30" rx="5" fill="#d7dde4"/>
+<rect x="149" y="69" width="30" height="30" rx="5" fill="#4b5563"/>
+<rect x="189" y="69" width="30" height="30" rx="5" fill="#d7dde4"/>
+<rect x="229" y="69" width="30" height="30" rx="5" fill="#d7dde4"/>
+<rect x="269" y="69" width="30" height="30" rx="5" fill="#4b5563"/>
+<rect x="309" y="69" width="30" height="30" rx="5" fill="#d7dde4"/>
+<line x1="24" y1="24" x2="344" y2="24" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="64" x2="344" y2="64" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="104" x2="344" y2="104" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="24" x2="24" y2="104" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="64" y1="24" x2="64" y2="104" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="104" y1="24" x2="104" y2="104" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="144" y1="24" x2="144" y2="104" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="184" y1="24" x2="184" y2="104" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="224" y1="24" x2="224" y2="104" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="264" y1="24" x2="264" y2="104" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="304" y1="24" x2="304" y2="104" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="344" y1="24" x2="344" y2="104" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<path d="M24 24 V104 H344" stroke="#16a34a" stroke-width="6" fill="none" stroke-linecap="round"/>
+<path d="M24 24 H344 V104" stroke="#ea580c" stroke-width="6" fill="none" stroke-linecap="round" stroke-dasharray="1 0"/>
+<line x1="84.0" y1="44.0" x2="44.0" y2="84.0" stroke="#f59e0b" stroke-width="3"/>
+<line x1="84.0" y1="44.0" x2="164.0" y2="84.0" stroke="#f59e0b" stroke-width="3"/>
+<line x1="204.0" y1="44.0" x2="284.0" y2="44.0" stroke="#f59e0b" stroke-width="3"/>
+<line x1="204.0" y1="44.0" x2="164.0" y2="84.0" stroke="#f59e0b" stroke-width="3"/>
+<line x1="204.0" y1="44.0" x2="284.0" y2="84.0" stroke="#f59e0b" stroke-width="3"/>
+<line x1="284.0" y1="44.0" x2="284.0" y2="84.0" stroke="#f59e0b" stroke-width="3"/>
+
+</svg><figcaption>حالت دو سطری: سبز ضلع‌های منبع، نارنجی ضلع‌های چاه، زرد یال‌های دیوار.</figcaption></figure></div>
+این زیرمسئله پلی است به راه‌حل کامل: همان ایده‌ی «پوشش رأسی دیوارها» در حالت کلی تبدیل به برش رأسی می‌شود.
+</div>
+
+<div class="sub-card full"><div class="sh"><span>زیرمسئله‌ی ۵</span><span class="pts">۴۵ امتیاز</span><span class="cond">بدون محدودیت</span></div>
+<h3>مدل</h3>
+<ol>
+<li>برای هر خانه‌ی مسکونی دو رأس <span class="m">in</span> و <span class="m">out</span> با یال ظرفیت ۱ بسازید. بریدن این یال یعنی تخلیه‌ی آن خانه.</li>
+<li>اگر خانه به ضلع چپ یا پایین وصل است (<span class="m">c = 0</span> یا <span class="m">r = H−1</span>)، یالی با ظرفیت بی‌نهایت از <span class="m">S</span> به <span class="m">in</span> بگذارید.</li>
+<li>اگر خانه به ضلع بالا یا راست وصل است (<span class="m">r = 0</span> یا <span class="m">c = W−1</span>)، یالی با ظرفیت بی‌نهایت از <span class="m">out</span> به <span class="m">T</span> بگذارید.</li>
+<li>برای هر دو خانه با <span class="m">max(|dr|, |dc|) ≤ 2</span>، یالی با ظرفیت بی‌نهایت از <span class="m">out</span> اولی به <span class="m">in</span> دومی بگذارید.</li>
+<li>جواب برابر شار بیشینه از <span class="m">S</span> به <span class="m">T</span> است.</li>
+</ol>
+<div class="figrow">
+  <figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 336 240" width="336" height="240">
+<rect x="24" y="24" width="288" height="192" fill="#f3f5f7"/>
+<rect x="29" y="29" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="77" y="29" width="38" height="38" rx="5" fill="#4b5563"/>
+<rect x="125" y="29" width="38" height="38" rx="5" fill="#4b5563"/>
+<rect x="173" y="29" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="221" y="29" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="269" y="29" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="29" y="77" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="77" y="77" width="38" height="38" rx="5" fill="#4b5563"/>
+<rect x="125" y="77" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="173" y="77" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="221" y="77" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="269" y="77" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="29" y="125" width="38" height="38" rx="5" fill="#4b5563"/>
+<rect x="77" y="125" width="38" height="38" rx="5" fill="#4b5563"/>
+<rect x="125" y="125" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="173" y="125" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="221" y="125" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="269" y="125" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="29" y="173" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="77" y="173" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="125" y="173" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="173" y="173" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="221" y="173" width="38" height="38" rx="5" fill="#4b5563"/>
+<rect x="269" y="173" width="38" height="38" rx="5" fill="#d7dde4"/>
+<line x1="24" y1="24" x2="312" y2="24" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="72" x2="312" y2="72" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="120" x2="312" y2="120" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="168" x2="312" y2="168" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="216" x2="312" y2="216" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="24" x2="24" y2="216" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="72" y1="24" x2="72" y2="216" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="120" y1="24" x2="120" y2="216" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="168" y1="24" x2="168" y2="216" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="216" y1="24" x2="216" y2="216" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="264" y1="24" x2="264" y2="216" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="312" y1="24" x2="312" y2="216" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<path d="M24 24 V216 H312" stroke="#16a34a" stroke-width="6" fill="none" stroke-linecap="round"/>
+<path d="M24 24 H312 V216" stroke="#ea580c" stroke-width="6" fill="none" stroke-linecap="round" stroke-dasharray="1 0"/>
+<line x1="96.0" y1="48.0" x2="144.0" y2="48.0" stroke="#f59e0b" stroke-width="3"/>
+<line x1="96.0" y1="48.0" x2="96.0" y2="96.0" stroke="#f59e0b" stroke-width="3"/>
+<line x1="96.0" y1="48.0" x2="48.0" y2="144.0" stroke="#f59e0b" stroke-width="3"/>
+<line x1="96.0" y1="48.0" x2="96.0" y2="144.0" stroke="#f59e0b" stroke-width="3"/>
+<line x1="144.0" y1="48.0" x2="96.0" y2="96.0" stroke="#f59e0b" stroke-width="3"/>
+<line x1="144.0" y1="48.0" x2="48.0" y2="144.0" stroke="#f59e0b" stroke-width="3"/>
+<line x1="144.0" y1="48.0" x2="96.0" y2="144.0" stroke="#f59e0b" stroke-width="3"/>
+<line x1="96.0" y1="96.0" x2="48.0" y2="144.0" stroke="#f59e0b" stroke-width="3"/>
+<line x1="96.0" y1="96.0" x2="96.0" y2="144.0" stroke="#f59e0b" stroke-width="3"/>
+<line x1="48.0" y1="144.0" x2="96.0" y2="144.0" stroke="#f59e0b" stroke-width="3"/>
+
+</svg><figcaption>گراف دیوارهای مثال. زنجیره‌ای از ضلع سبز به ضلع نارنجی وجود دارد، پس جاده بسته است.</figcaption></figure>
+  <figure><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 336 240" width="336" height="240">
+<rect x="24" y="24" width="288" height="192" fill="#f3f5f7"/>
+<rect x="29" y="29" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="77" y="29" width="38" height="38" rx="5" fill="#4b5563"/>
+<rect x="125" y="29" width="38" height="38" rx="5" fill="#4b5563"/>
+<rect x="173" y="29" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="221" y="29" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="269" y="29" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="29" y="77" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="77" y="77" width="38" height="38" rx="5" fill="#4b5563"/>
+<rect x="125" y="77" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="173" y="77" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="221" y="77" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="269" y="77" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="29" y="125" width="38" height="38" rx="5" fill="#4b5563"/>
+<path d="M36 132 L60 156 M60 132 L36 156" stroke="#dc2626" stroke-width="4" stroke-linecap="round"/>
+<rect x="77" y="125" width="38" height="38" rx="5" fill="#4b5563"/>
+<rect x="125" y="125" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="173" y="125" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="221" y="125" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="269" y="125" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="29" y="173" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="77" y="173" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="125" y="173" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="173" y="173" width="38" height="38" rx="5" fill="#d7dde4"/>
+<rect x="221" y="173" width="38" height="38" rx="5" fill="#4b5563"/>
+<rect x="269" y="173" width="38" height="38" rx="5" fill="#d7dde4"/>
+<line x1="24" y1="24" x2="312" y2="24" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="72" x2="312" y2="72" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="120" x2="312" y2="120" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="168" x2="312" y2="168" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="216" x2="312" y2="216" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="24" x2="24" y2="216" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="72" y1="24" x2="72" y2="216" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="120" y1="24" x2="120" y2="216" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="168" y1="24" x2="168" y2="216" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="216" y1="24" x2="216" y2="216" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="264" y1="24" x2="264" y2="216" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="312" y1="24" x2="312" y2="216" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<path d="M24 24 V216 H312" stroke="#16a34a" stroke-width="6" fill="none" stroke-linecap="round"/>
+<path d="M24 24 H312 V216" stroke="#ea580c" stroke-width="6" fill="none" stroke-linecap="round" stroke-dasharray="1 0"/>
+<line x1="96.0" y1="48.0" x2="144.0" y2="48.0" stroke="#f59e0b" stroke-width="3"/>
+<line x1="96.0" y1="48.0" x2="96.0" y2="96.0" stroke="#f59e0b" stroke-width="3"/>
+<line x1="96.0" y1="48.0" x2="96.0" y2="144.0" stroke="#f59e0b" stroke-width="3"/>
+<line x1="144.0" y1="48.0" x2="96.0" y2="96.0" stroke="#f59e0b" stroke-width="3"/>
+<line x1="144.0" y1="48.0" x2="96.0" y2="144.0" stroke="#f59e0b" stroke-width="3"/>
+<line x1="96.0" y1="96.0" x2="96.0" y2="144.0" stroke="#f59e0b" stroke-width="3"/>
+
+</svg><figcaption>با حذف یک خانه، هیچ زنجیره‌ای از سبز به نارنجی نمی‌ماند. جواب ۱ است.</figcaption></figure>
+</div>
+</div>
+
+<h2>چرا درست است؟</h2>
+<p>
+<b>ادعا:</b> با مجموعه‌ی ثابتی از خانه‌های باقی‌مانده، جاده وجود ندارد اگر و تنها اگر در گراف بالا زنجیره‌ای از منبع به چاه باشد.
+</p>
+<ul>
+<li><b>رأس‌های بسته:</b> خانه‌ی <span class="m">(r, c)</span> بلوک <span class="m">2 × 2</span> از رأس‌ها را می‌بندد: سطرهای <span class="m">r, r+1</span> و ستون‌های <span class="m">c, c+1</span>. دو بلوک با فاصله‌ی حداکثر ۲ در هر محور، رأس‌هایی دارند که <b>هشت‌همسایه</b> هستند. با فاصله‌ی ۳ بین آن‌ها یک خط کامل از رأس‌های آزاد می‌ماند.</li>
+<li><b>دوگانی:</b> در یک شبکه، مسیری چهارهمسایه بین دو گوشه‌ی مقابل وجود ندارد اگر و تنها اگر مجموعه‌ای <b>هشت‌همبند</b> از رأس‌های بسته، دو ضلعِ «بین» آن دو گوشه را به هم وصل کند. این همان اصل پشت بازی هکس است. ضلع‌های چپ و پایین یک طرف هستند و ضلع‌های بالا و راست طرف دیگر.</li>
+<li><b>مرزها:</b> رأس بسته روی ضلع چپ یعنی ستون ۰ از رأس‌ها، که فقط خانه‌های <span class="m">c = 0</span> آن را می‌بندند. بقیه‌ی ضلع‌ها هم به همین شکل.</li>
+<li><b>گوشه‌ها:</b> خانه‌ی <span class="m">(0,0)</span> خودِ رأس شروع را می‌بندد و در مدل هم هم‌زمان به منبع و چاه وصل است، پس حتماً بریده می‌شود. خانه‌ی <span class="m">(H−1, W−1)</span> هم همین‌طور. حالت‌های خاص خودبه‌خود درست درمی‌آیند.</li>
+</ul>
+<p>
+پس کمترین تعداد تخلیه برابر کمترین تعداد رأسی است که همه‌ی زنجیره‌های منبع به چاه را قطع کند. طبق <b>قضیه‌ی منگر</b> این مقدار با بیشترین تعداد زنجیره‌ی رأس-مجزا برابر است و با تقسیم رأس‌ها و شار بیشینه محاسبه می‌شود.
+</p>
+
+<h2>پیچیدگی</h2>
+<table class="cx">
+<tr><th>کمیت</th><th>مقدار</th></tr>
+<tr><td>تعداد رأس‌ها</td><td><span class="m">2HW + 2 ≤ 5002</span></td></tr>
+<tr><td>تعداد یال‌ها</td><td>حدود <span class="m">25 · HW ≈ 62 500</span></td></tr>
+<tr><td>مقدار شار</td><td>حداکثر <span class="m">H + W − 1 ≤ 99</span> (تخلیه‌ی ستون اول و سطر آخر همیشه کافی است)</td></tr>
+<tr><td>زمان</td><td><span class="m">O(F · E)</span> حتی با فورد-فالکرسون ساده، یعنی چند میلی‌ثانیه</td></tr>
+</table>
+
+<h2>اشتباه‌های رایج</h2>
+<table class="pit">
+<tr><th>اشتباه</th><th>چرا غلط است</th></tr>
+<tr><td>وصل کردن خانه‌ها فقط وقتی به هم می‌چسبند (فاصله‌ی ۱)</td><td>فاصله‌ی ۲ هم دیوار می‌سازد (راهنمایی ۴). جواب کمتر از مقدار واقعی درمی‌آید.</td></tr>
+<tr><td>قاعده‌ی مرز را مثل قاعده‌ی بین خانه‌ها گرفتن (مثلاً <span class="m">c ≤ 1</span>)</td><td>جاده می‌تواند <b>روی</b> خود مرز حرکت کند؛ فقط خانه‌های چسبیده به مرز آن را می‌بندند.</td></tr>
+<tr><td>تقسیم نکردن رأس‌ها و گذاشتن ظرفیت روی یال‌ها</td><td>این برش یالی را حساب می‌کند، نه برش رأسی. یک خانه ممکن است در چند زنجیره باشد و حذفش همه را با هم قطع کند.</td></tr>
+<tr><td>دایکسترا روی رأس‌ها با شمردن همه‌ی خانه‌های اطراف هر رأس</td><td>هر ساکن چند بار شمرده می‌شود، در حالی که فقط یک بار تخلیه می‌شود.</td></tr>
+<tr><td>پاسخ «۰ یا ۱» یا جست‌وجوی کامل</td><td>فقط برای زیرمسئله‌های ۲ و ۳ کافی است.</td></tr>
+</table>
+
+<h2>کد مرجع</h2>
+<pre class="code">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+
+struct Dinic {
+    struct Edge { int to, cap; };
+    vector&lt;Edge&gt; e; vector&lt;vector&lt;int&gt;&gt; g; vector&lt;int&gt; lvl, it;
+    Dinic(int n) : g(n), lvl(n), it(n) {}
+    void add(int u, int v, int c) {
+        g[u].push_back(e.size()); e.push_back({v, c});
+        g[v].push_back(e.size()); e.push_back({u, 0});
+    }
+    bool bfs(int s, int t) {
+        fill(lvl.begin(), lvl.end(), -1); lvl[s] = 0;
+        queue&lt;int&gt; q; q.push(s);
+        while (!q.empty()) {
+            int u = q.front(); q.pop();
+            for (int id : g[u]) if (e[id].cap &amp;&amp; lvl[e[id].to] &lt; 0)
+                lvl[e[id].to] = lvl[u] + 1, q.push(e[id].to);
+        }
+        return lvl[t] &gt;= 0;
+    }
+    int dfs(int u, int t, int f) {
+        if (u == t) return f;
+        for (int &amp;i = it[u]; i &lt; (int)g[u].size(); i++) {
+            Edge &amp;x = e[g[u][i]];
+            if (x.cap &amp;&amp; lvl[x.to] == lvl[u] + 1)
+                if (int d = dfs(x.to, t, min(f, x.cap))) {
+                    x.cap -= d; e[g[u][i] ^ 1].cap += d; return d;
+                }
+        }
+        return 0;
+    }
+    int maxflow(int s, int t) {
+        int f = 0;
+        while (bfs(s, t)) { fill(it.begin(), it.end(), 0); while (int d = dfs(s, t, INT_MAX)) f += d; }
+        return f;
+    }
+};
+
+int main() {
+    int H, W; cin &gt;&gt; H &gt;&gt; W;
+    vector&lt;string&gt; a(H); for (auto &amp;s : a) cin &gt;&gt; s;
+    const int INF = 1e9, S = 2 * H * W, T = S + 1;
+    Dinic D(2 * H * W + 2);
+    auto in  = [&amp;](int r, int c) { return 2 * (r * W + c); };
+    auto out = [&amp;](int r, int c) { return 2 * (r * W + c) + 1; };
+    for (int r = 0; r &lt; H; r++) for (int c = 0; c &lt; W; c++) if (a[r][c] == &#x27;#&#x27;) {
+        D.add(in(r, c), out(r, c), 1);                       <span class="cm">// evicting this resident costs 1</span>
+        if (c == 0 || r == H - 1) D.add(S, in(r, c), INF);   <span class="cm">// touches left/bottom border</span>
+        if (r == 0 || c == W - 1) D.add(out(r, c), T, INF);  <span class="cm">// touches top/right border</span>
+        for (int dr = -2; dr &lt;= 2; dr++) for (int dc = -2; dc &lt;= 2; dc++) {
+            int y = r + dr, x = c + dc;
+            if ((dr || dc) &amp;&amp; 0 &lt;= y &amp;&amp; y &lt; H &amp;&amp; 0 &lt;= x &amp;&amp; x &lt; W &amp;&amp; a[y][x] == &#x27;#&#x27;)
+                D.add(out(r, c), in(y, x), INF);             <span class="cm">// the two houses close the gap between them</span>
+        }
+    }
+    cout &lt;&lt; D.maxflow(S, T) &lt;&lt; &quot;\n&quot;;
+}
+</pre>
+
+<h2>برای فکر بیشتر</h2>
+<div class="bonus">
+<ol>
+<li>اگر هر ساکن هزینه‌ی تخلیه‌ی متفاوتی داشت، چه چیزی در راه‌حل عوض می‌شد؟ <span class="ans">(فقط ظرفیت یال <span class="m">in → out</span>.)</span></li>
+<li>چطور خود جاده را هم چاپ کنیم؟ <span class="ans">(پس از شار، خانه‌های بریده را حذف کنید و یک جست‌وجوی سطحی روی رأس‌ها بزنید.)</span></li>
+<li>اگر ابعاد تا <span class="m">2000 × 2000</span> بود چه؟ <span class="ans">(راهنمایی: در گراف‌های صفحه‌ای، برش کمینه با کوتاه‌ترین مسیر در گراف دوگان ارتباط دارد. آیا می‌توانید اثبات کنید کدام کوتاه‌ترین مسیر درست است؟)</span></li>
+</ol>
+</div>
+</body></html>

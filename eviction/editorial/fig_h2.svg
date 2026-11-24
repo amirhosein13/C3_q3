@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 368 128" width="368" height="128">
+<rect x="24" y="24" width="320" height="80" fill="#f3f5f7"/>
+<rect x="29" y="29" width="30" height="30" rx="5" fill="#d7dde4"/>
+<rect x="69" y="29" width="30" height="30" rx="5" fill="#4b5563"/>
+<rect x="109" y="29" width="30" height="30" rx="5" fill="#d7dde4"/>
+<rect x="149" y="29" width="30" height="30" rx="5" fill="#d7dde4"/>
+<rect x="189" y="29" width="30" height="30" rx="5" fill="#4b5563"/>
+<rect x="229" y="29" width="30" height="30" rx="5" fill="#d7dde4"/>
+<rect x="269" y="29" width="30" height="30" rx="5" fill="#4b5563"/>
+<rect x="309" y="29" width="30" height="30" rx="5" fill="#d7dde4"/>
+<rect x="29" y="69" width="30" height="30" rx="5" fill="#4b5563"/>
+<rect x="69" y="69" width="30" height="30" rx="5" fill="#d7dde4"/>
+<rect x="109" y="69" width="30" height="30" rx="5" fill="#d7dde4"/>
+<rect x="149" y="69" width="30" height="30" rx="5" fill="#4b5563"/>
+<rect x="189" y="69" width="30" height="30" rx="5" fill="#d7dde4"/>
+<rect x="229" y="69" width="30" height="30" rx="5" fill="#d7dde4"/>
+<rect x="269" y="69" width="30" height="30" rx="5" fill="#4b5563"/>
+<rect x="309" y="69" width="30" height="30" rx="5" fill="#d7dde4"/>
+<line x1="24" y1="24" x2="344" y2="24" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="64" x2="344" y2="64" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="104" x2="344" y2="104" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="24" y1="24" x2="24" y2="104" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="64" y1="24" x2="64" y2="104" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="104" y1="24" x2="104" y2="104" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="144" y1="24" x2="144" y2="104" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="184" y1="24" x2="184" y2="104" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="224" y1="24" x2="224" y2="104" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="264" y1="24" x2="264" y2="104" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="304" y1="24" x2="304" y2="104" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<line x1="344" y1="24" x2="344" y2="104" stroke="#9aa4b1" stroke-dasharray="3 3"/>
+<path d="M24 24 V104 H344" stroke="#16a34a" stroke-width="6" fill="none" stroke-linecap="round"/>
+<path d="M24 24 H344 V104" stroke="#ea580c" stroke-width="6" fill="none" stroke-linecap="round" stroke-dasharray="1 0"/>
+<line x1="84.0" y1="44.0" x2="44.0" y2="84.0" stroke="#f59e0b" stroke-width="3"/>
+<line x1="84.0" y1="44.0" x2="164.0" y2="84.0" stroke="#f59e0b" stroke-width="3"/>
+<line x1="204.0" y1="44.0" x2="284.0" y2="44.0" stroke="#f59e0b" stroke-width="3"/>
+<line x1="204.0" y1="44.0" x2="164.0" y2="84.0" stroke="#f59e0b" stroke-width="3"/>
+<line x1="204.0" y1="44.0" x2="284.0" y2="84.0" stroke="#f59e0b" stroke-width="3"/>
+<line x1="284.0" y1="44.0" x2="284.0" y2="84.0" stroke="#f59e0b" stroke-width="3"/>
+
+</svg>

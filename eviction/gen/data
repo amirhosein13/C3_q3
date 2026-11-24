@@ -1,0 +1,92 @@
+@subtask samples
+copy ../public/examples/01.in
+
+@subtask h1
+gen rand 1 1 0 a
+gen full 1 1 a
+gen rand 1 2 50 a
+gen rand 1 50 10 a
+gen rand 1 50 50 a
+gen rand 1 50 80 a
+gen rand 1 37 65 a
+gen full 1 50 a
+gen cnt 1 50 0 a
+gen cnt 1 50 3 a
+
+@subtask small
+@include samples
+gen full 3 3 a
+gen full 3 4 a
+gen full 4 3 a
+gen cnt 50 50 12 a
+gen cnt 5 5 12 a
+gen cnt 4 6 12 a
+gen cnt 6 4 11 b
+gen cnt 3 8 12 c
+gen cnt 10 10 12 d
+gen cnt 7 7 12 e
+gen diag 8 8 2 a
+gen diag 7 7 2 c
+gen rand 4 4 60 a
+gen rand 5 3 70 b
+gen cnt 1 1 0 z
+
+@subtask one
+@include samples
+gen rand 1 1 0 b
+gen carve 50 50 50 0 a
+gen carve 50 50 70 1 b
+gen carve 50 50 90 1 c
+gen carve 50 50 95 1 d
+gen carve 50 50 80 0 e
+gen carve 30 47 85 1 f
+gen carve 10 50 90 1 g
+gen carve 50 8 90 1 h
+gen carve 3 50 90 1 i
+gen carve 20 20 100 1 j
+gen carve 50 50 100 1 k
+gen carve 49 50 75 1 l
+gen maze 50 50 4 0 a
+gen maze 50 50 3 0 b
+
+@subtask h2
+@include h1
+gen rand 2 1 100 a
+gen full 2 50 a
+gen rand 2 50 30 a
+gen rand 2 50 50 b
+gen rand 2 50 70 c
+gen rand 2 50 85 d
+gen rand 2 41 60 e
+gen cnt 2 50 30 a
+gen cnt 2 50 10 b
+gen carve 2 50 80 1 a
+gen carve 2 50 50 0 b
+
+@subtask full
+@include samples h1 small one h2
+gen full 50 50 a
+gen full 50 1 a
+gen rand 50 1 50 a
+gen rand 50 50 10 a
+gen rand 50 50 20 b
+gen rand 50 50 30 c
+gen rand 50 50 40 d
+gen rand 50 50 50 e
+gen rand 50 50 60 f
+gen rand 50 50 70 g
+gen rand 50 50 85 h
+gen rand 33 50 45 i
+gen rand 50 17 55 j
+gen bar 50 50 5 2 0 a
+gen bar 50 50 8 2 5 b
+gen bar 50 50 12 2 0 c
+gen bar 40 50 6 1 10 d
+gen diag 50 50 6 a
+gen diag 50 50 10 b
+gen diag 25 50 7 c
+gen maze 50 50 4 20 a
+gen maze 50 50 5 30 b
+gen maze 50 50 3 15 c
+gen cnt 50 50 600 a
+gen cnt 50 50 1200 b

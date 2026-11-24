@@ -1,0 +1,12 @@
+@font-face{font-family:Vazirmatn;src:url(assets/fonts/Vazirmatn-Regular.ttf);font-weight:400}
+@font-face{font-family:Vazirmatn;src:url(assets/fonts/Vazirmatn-Bold.ttf);font-weight:700}
+body{font-family:"DejaVu Sans",Vazirmatn,sans-serif;font-size:11pt;line-height:1.55;max-width:780px;margin:24px auto;color:#111}
+html[dir=rtl] body{font-family:Vazirmatn,"DejaVu Sans",sans-serif}
+h1{text-align:center;border-bottom:2px solid #333;padding-bottom:6px}
+h2{border-bottom:1px solid #bbb;padding-bottom:2px;margin-top:1.4em}
+table{border-collapse:collapse;margin:8px 0}
+td,th{border:1px solid #999;padding:4px 12px}
+pre{background:#f4f4f4;border:1px solid #ccc;padding:8px;direction:ltr;text-align:left;font-family:"DejaVu Sans Mono",monospace}
+code{font-family:"DejaVu Sans Mono",monospace;direction:ltr;unicode-bidi:embed}
+img{display:block;margin:10px auto;max-width:100%}
+.math{direction:ltr;unicode-bidi:isolate}

@@ -1,0 +1,50 @@
+EXPRESS EVICTION - values to enter in the CMS Admin web panel
+================================================================
+
+[Task]
+Name (short code)        : eviction
+Title                    : Express Eviction
+Statements               : statement.pdf     language code: en
+                           statement-fa.pdf  language code: fa
+Primary statement(s)     : fa (and/or en)
+Attachments              : attachments/sample-01.in , attachments/sample-01.out
+Submission format        : eviction.%l        (default; one source file)
+Score mode               : "Use the sum over subtasks of the best result for that subtask across submissions (IOI 2017-)"
+                           (IOI style, value max_subtask; if missing: "Use best among submissions (IOI 2013-2016)")
+Feedback level           : Full   (CMS >= 1.5; contestants see per-subtask results)
+Tokens                   : Token generation mode = Disabled (no tokens, IOI style)
+Score precision          : 0
+Max submissions / interval: leave empty (or e.g. min interval 60 s, max 50 submissions)
+
+[Dataset]  (Datasets -> the "Active" dataset)
+Time limit               : 1          (seconds)
+Memory limit             : 256        (MiB  - the panel field is "Memory limit (MiB)"; NOT bytes, NOT KB)
+Task type                : Batch
+  Compilation            : Submissions are self-sufficient   (alone, no grader)
+  I/O                    : input file name EMPTY, output file name EMPTY  (= stdin / stdout)
+  Output evaluation      : Outputs compared with white diff  (the answer is a single unique integer,
+                           so whitespace-insensitive comparison is enough -> NO checker needed)
+Managers                 : none
+  (optional alternative: upload optional_checker/checker as manager named exactly "checker"
+   and choose "Outputs are compared by a comparator" - gives identical results)
+Score type               : Group min   (GroupMin)
+Score parameters         : (paste exactly, one line)
+[[0, "^0-01$"], [6, "^1-[0-9]+$"], [14, "^(0-01|2-[0-9]+)$"], [18, "^(0-01|3-[0-9]+)$"], [17, "^[14]-[0-9]+$"], [45, "^[0-9]+-[0-9]+$"]]
+
+[Testcases]  "Add multiple testcases"
+Archive                  : tests.zip   (77 tests = 154 files, flat)
+Input template           : *.in
+Output template          : *.out
+Overwrite                : checked (if re-uploading)
+Public                   : unchecked; afterwards tick "public" only for testcase 0-01 (the sample)
+                           (with Feedback level = Full contestants still see subtask scores)
+Expected testcase count  : 77   (0-01, 1-01..1-10, 2-01..2-15, 3-01..3-15, 4-01..4-11, 5-01..5-25)
+
+[Subtasks]
+#  name     score  tests (by codename)                 constraint
+0  samples    0    0-01                                 sample
+1  h1         6    1-*                                  H = 1
+2  small     14    0-01, 2-*                            at most 12 '#'
+3  one       18    0-01, 3-*                            answer <= 1
+4  h2        17    1-*, 4-*                             H <= 2
+5  full      45    all 77                               none

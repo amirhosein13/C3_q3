@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Express Eviction</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<h1 id="express-eviction">Express Eviction</h1>
+<table>
+<tbody>
+<tr class="odd">
+<td>Input</td>
+<td>standard input</td>
+</tr>
+<tr class="even">
+<td>Output</td>
+<td>standard output</td>
+</tr>
+<tr class="odd">
+<td>Time limit</td>
+<td>1 second</td>
+</tr>
+<tr class="even">
+<td>Memory limit</td>
+<td>256 megabytes</td>
+</tr>
+</tbody>
+</table>
+<p>Bajtocja is a rectangular land consisting of
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>⋅</mo><mi>W</mi></mrow><annotation encoding="application/x-tex">H \cdot W</annotation></semantics></math>
+cells arranged in
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>H</mi><annotation encoding="application/x-tex">H</annotation></semantics></math>
+rows and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>W</mi><annotation encoding="application/x-tex">W</annotation></semantics></math>
+columns. The border of each cell is a local road with little traffic
+(this includes the outer border of the land). Each cell is either empty
+or inhabited by one resident. The residents like peace and would not
+want to live right next to a planned express road.</p>
+<p>Your task is to plan the route of the express road from the
+upper-left corner to the lower-right corner of Bajtocja. The route can
+only run along existing roads, i.e. along cell borders. The length and
+the number of turns of the route do not matter.</p>
+<p>Every resident whose cell is adjacent to the express road — by a side
+or even only by a corner — has to be evicted. In other words, a resident
+is evicted if the road passes through at least one of the four corner
+points of their cell.</p>
+<p>What is the minimum number of residents that need to be evicted?</p>
+<h2 id="input">Input</h2>
+<p>The first line contains two integers
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>H</mi><annotation encoding="application/x-tex">H</annotation></semantics></math>
+and
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>W</mi><annotation encoding="application/x-tex">W</annotation></semantics></math>
+— the dimensions of Bajtocja.</p>
+<p>Each of the next
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>H</mi><annotation encoding="application/x-tex">H</annotation></semantics></math>
+lines contains a string of length
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>W</mi><annotation encoding="application/x-tex">W</annotation></semantics></math>
+consisting of characters <code>.</code> (empty cell) and <code>#</code>
+(inhabited cell).</p>
+<h2 id="output">Output</h2>
+<p>Output a single integer — the minimum possible number of evicted
+residents.</p>
+<h2 id="constraints">Constraints</h2>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>≤</mo><mi>H</mi><mo>,</mo><mi>W</mi><mo>≤</mo><mn>50</mn></mrow><annotation encoding="application/x-tex">1 \le H, W \le 50</annotation></semantics></math></li>
+<li>Each row contains exactly
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>W</mi><annotation encoding="application/x-tex">W</annotation></semantics></math>
+characters, each of them <code>.</code> or <code>#</code>.</li>
+</ul>
+<h2 id="subtasks">Subtasks</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Subtask</th>
+<th style="text-align: center;">Score</th>
+<th>Additional constraints</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">6</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">H = 1</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">14</td>
+<td>There are at most
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>12</mn><annotation encoding="application/x-tex">12</annotation></semantics></math>
+inhabited cells</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">18</td>
+<td>The answer is at most
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">17</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>≤</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">H \le 2</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">45</td>
+<td>No additional constraints</td>
+</tr>
+</tbody>
+</table>
+<h2 id="example">Example</h2>
+<p><strong>Input</strong></p>
+<pre><code>4 6
+.##...
+.#....
+##....
+....#.</code></pre>
+<p><strong>Output</strong></p>
+<pre><code>1</code></pre>
+<h2 id="note">Note</h2>
+<p>If you evict the resident from the cell in the first column and the
+third row, you can build the express road as follows (houses are dark,
+the evicted one is crossed, the road is blue):</p>
+<p><img src="sample.svg" /></p>
+</body>
+</html>

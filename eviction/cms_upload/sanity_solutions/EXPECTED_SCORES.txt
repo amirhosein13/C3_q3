@@ -1,0 +1,9 @@
+Submit each file through the contestant web interface (language C++17 / g++). Expected CMS scores:
+model.cpp        100   (all subtasks)
+p_h1.cpp           6   (subtask 1 only; WA elsewhere)
+brute.cpp         14   (subtask 2 only; TLE elsewhere)
+p_one.cpp         18   (subtask 3 only; WA elsewhere)
+p_h2.cpp          23   (subtasks 1+4; WA elsewhere)
+tle_iddfs.cpp     32   (subtasks 2+3; TLE elsewhere)
+wa_cheb1.cpp       6   (subtask 1 only; WA elsewhere)
+wa_dijkstra.cpp    0   (WA everywhere)

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fa" xml:lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Express Eviction</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<h1 id="تخلیهی-سریعالسیر">تخلیه‌ی سریع‌السیر</h1>
+<table>
+<tbody>
+<tr class="odd">
+<td>ورودی</td>
+<td>ورودی استاندارد</td>
+</tr>
+<tr class="even">
+<td>خروجی</td>
+<td>خروجی استاندارد</td>
+</tr>
+<tr class="odd">
+<td>محدودیت زمان</td>
+<td>۱ ثانیه</td>
+</tr>
+<tr class="even">
+<td>محدودیت حافظه</td>
+<td>۲۵۶ مگابایت</td>
+</tr>
+</tbody>
+</table>
+<p>سرزمین بایتوجا یک مستطیل است که از
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>⋅</mo><mi>W</mi></mrow><annotation encoding="application/x-tex">H \cdot W</annotation></semantics></math>
+خانه تشکیل شده و این خانه‌ها در
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>H</mi><annotation encoding="application/x-tex">H</annotation></semantics></math>
+سطر و
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>W</mi><annotation encoding="application/x-tex">W</annotation></semantics></math>
+ستون چیده شده‌اند. مرز هر خانه یک جاده‌ی محلی کم‌تردد است (مرز بیرونی
+سرزمین هم جاده حساب می‌شود). هر خانه یا خالی است یا دقیقاً یک ساکن دارد.
+ساکنان آرامش را دوست دارند و نمی‌خواهند درست کنار بزرگراه جدید زندگی
+کنند.</p>
+<p>شما باید مسیر بزرگراه را از گوشه‌ی بالا-چپ تا گوشه‌ی پایین-راست بایتوجا
+طراحی کنید. بزرگراه فقط می‌تواند روی جاده‌های موجود، یعنی روی مرز خانه‌ها،
+ساخته شود. طول مسیر و تعداد پیچ‌های آن اهمیتی ندارد.</p>
+<p>هر ساکنی که خانه‌اش با بزرگراه مجاور باشد، چه از یک ضلع و چه حتی فقط
+از یک گوشه، باید تخلیه شود. به بیان دیگر، اگر بزرگراه دست‌کم از یکی از
+چهار رأس گوشه‌ی یک خانه‌ی مسکونی عبور کند، ساکن آن خانه تخلیه می‌شود.</p>
+<p>کمترین تعداد ساکنانی که باید تخلیه شوند چند است؟</p>
+<h2 id="ورودی">ورودی</h2>
+<p>سطر اول شامل دو عدد صحیح
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>H</mi><annotation encoding="application/x-tex">H</annotation></semantics></math>
+و
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>W</mi><annotation encoding="application/x-tex">W</annotation></semantics></math>
+است که ابعاد سرزمین را مشخص می‌کنند.</p>
+<p>در هر یک از
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>H</mi><annotation encoding="application/x-tex">H</annotation></semantics></math>
+سطر بعدی رشته‌ای به طول
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>W</mi><annotation encoding="application/x-tex">W</annotation></semantics></math>
+آمده است که فقط از نویسه‌های <code>.</code> برای خانه‌ی خالی و
+<code>#</code> برای خانه‌ی مسکونی تشکیل شده است.</p>
+<h2 id="خروجی">خروجی</h2>
+<p>یک عدد صحیح چاپ کنید: کمترین تعداد ممکن ساکنان تخلیه‌شده.</p>
+<h2 id="محدودیتها">محدودیت‌ها</h2>
+<ul>
+<li><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>≤</mo><mi>H</mi><mo>,</mo><mi>W</mi><mo>≤</mo><mn>50</mn></mrow><annotation encoding="application/x-tex">1 \le H, W \le 50</annotation></semantics></math></li>
+<li>هر سطر دقیقاً
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>W</mi><annotation encoding="application/x-tex">W</annotation></semantics></math>
+نویسه دارد و هر نویسه یا <code>.</code> است یا <code>#</code>.</li>
+</ul>
+<h2 id="زیرمسئلهها">زیرمسئله‌ها</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">زیرمسئله</th>
+<th style="text-align: center;">امتیاز</th>
+<th>محدودیت اضافه</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">۱</td>
+<td style="text-align: center;">۶</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>=</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">H = 1</annotation></semantics></math></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">۲</td>
+<td style="text-align: center;">۱۴</td>
+<td>حداکثر
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>12</mn><annotation encoding="application/x-tex">12</annotation></semantics></math>
+خانه‌ی مسکونی وجود دارد</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">۳</td>
+<td style="text-align: center;">۱۸</td>
+<td>جواب حداکثر
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mn>1</mn><annotation encoding="application/x-tex">1</annotation></semantics></math>
+است</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">۴</td>
+<td style="text-align: center;">۱۷</td>
+<td><math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>≤</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">H \le 2</annotation></semantics></math></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">۵</td>
+<td style="text-align: center;">۴۵</td>
+<td>بدون محدودیت اضافه</td>
+</tr>
+</tbody>
+</table>
+<h2 id="مثال">مثال</h2>
+<p><strong>ورودی</strong></p>
+<pre><code>4 6
+.##...
+.#....
+##....
+....#.</code></pre>
+<p><strong>خروجی</strong></p>
+<pre><code>1</code></pre>
+<h2 id="توضیح">توضیح</h2>
+<p>اگر ساکن خانه‌ی سطر سوم و ستون اول را تخلیه کنیم، می‌توان بزرگراه را
+مانند شکل زیر ساخت. خانه‌های مسکونی تیره هستند، خانه‌ی تخلیه‌شده با ضربدر
+قرمز مشخص شده و بزرگراه آبی است.</p>
+<p><img src="sample.svg" /></p>
+</body>
+</html>

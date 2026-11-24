@@ -1,0 +1,12 @@
+{
+    "model.cpp":       { "verdict": "model_solution" },
+    "brute.cpp":       { "verdict": "time_limit", "except": { "samples": "correct", "small": "correct" } },
+    "p_h1.cpp":        { "verdict": "incorrect",  "except": { "h1": "correct" } },
+    "p_one.cpp":       { "verdict": "incorrect",  "except": { "samples": "correct", "one": "correct" } },
+    "p_h2.cpp":        { "verdict": "incorrect",  "except": { "h1": "correct", "h2": "correct" } },
+    "tle_iddfs.cpp":   { "verdict": "time_limit", "except": { "samples": "correct", "small": "correct", "one": "correct" } },
+    "wa_cheb1.cpp":    { "verdict": "incorrect",  "except": { "samples": "correct", "h1": "correct" } },
+    "wa_border.cpp":   { "verdict": "incorrect",  "except": { "h1": "correct" } },
+    "wa_nosplit.cpp":  { "verdict": "incorrect",  "except": { "samples": "correct", "h1": "correct" } },
+    "wa_dijkstra.cpp": { "verdict": "incorrect" }
+}

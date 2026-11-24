@@ -1,0 +1,12 @@
+{
+    "global_validators": [],
+    "subtask_sensitive_validators": ["validator.cpp --group {subtask}"],
+    "subtasks": {
+        "samples": { "index": 0, "score": 0,  "validators": [] },
+        "h1":      { "index": 1, "score": 6,  "validators": [] },
+        "small":   { "index": 2, "score": 14, "validators": [] },
+        "one":     { "index": 3, "score": 18, "validators": [] },
+        "h2":      { "index": 4, "score": 17, "validators": [] },
+        "full":    { "index": 5, "score": 45, "validators": [] }
+    }
+}
